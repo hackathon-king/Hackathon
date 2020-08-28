@@ -9,8 +9,9 @@
 
 from git import Git
 from git import GitCommandError
-from datetime import datetime
 
+import datetime
+import sys
 
 class GitHack(object):
 
@@ -82,7 +83,9 @@ if __name__ == "__main__":
         # push codes to remote repository
         git_hack.push()
     except GitCommandError as git_command_error:
-        print("GitCommandError" + git_command_error.__str__())
+        print("GitCommandError: " + git_command_error.__str__())
+        GitHack.info("Nothing to commit, working tree clean")
+        sys.exit(0)
     except Exception as other:
         print(other)
 
