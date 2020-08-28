@@ -45,28 +45,33 @@ class GitHack(object):
         res = self.git.execute(command)
         self.show(command, res)
 
+    # show log info
     def log(self, para=""):
         command = "git log " + para
         res = self.git.execute(command)
         self.show(command, res)
 
 
-
-
-
-
 if __name__ == "__main__":
+    # Create a object for GitHack with git
     git_hack = GitHack()
+
+    # show current active branch and status
     git_hack.branch()
     git_hack.status()
 
+    # add files
     git_hack.add()
 
+    # input comment for committing
     print("commit comment: ", end="")
     comment = input()
     print(comment)
     git_hack.commit(comment=comment)
 
+    # push codes to remote repository
     git_hack.push()
+
+    # could show log
     git_hack.log()
 
