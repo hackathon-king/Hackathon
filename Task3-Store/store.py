@@ -15,7 +15,7 @@ import sys
 
 class GitHack(object):
 
-    def __init__(self, working_dir=r".."):
+    def __init__(self, working_dir=r"../"):
         self.git = Git(working_dir)
 
     # show executive command and result
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         print("commit comment: ", end="")
         comment = input()
         git_hack.commit(comments=comment)
-#
+
         # push codes to remote repository
         git_hack.push()
     except GitCommandError as git_command_error:
