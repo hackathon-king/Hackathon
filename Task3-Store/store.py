@@ -8,6 +8,7 @@
 # coding:utf-8
 
 from git import Git
+from git import GitCommandError
 from datetime import datetime
 
 
@@ -68,17 +69,22 @@ if __name__ == "__main__":
     git_hack.branch()
     git_hack.status()
 
-    # add files
-    git_hack.add()
+    try:
+        # add files
+        git_hack.add()
 
-    # input comment for committing
-    print("commit comment: ", end="")
-    comment = input()
-    print(comment)
-    git_hack.commit(comment=comment)
-
-    # push codes to remote repository
-    git_hack.push()
+        # input comment for committing
+        print("commit comment: ", end="")
+        comment = input()
+        print(comment)
+        git_hack.commit(comment=comment)
+    
+        # push codes to remote repository
+        git_hack.push()
+    except GitCommandError as git_command_error:
+        print(git_command_error)
+    except Exception as other:
+        print(other)
 
     # could show log
     # git_hack.log()
