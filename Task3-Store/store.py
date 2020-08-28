@@ -9,7 +9,6 @@
 
 from git import Git
 from git import GitCommandError
-
 from datetime import datetime
 import sys
 
