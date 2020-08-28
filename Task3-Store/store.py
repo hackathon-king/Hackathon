@@ -45,8 +45,8 @@ class GitHack(object):
         res = self.git.execute(command)
         self.show(command, res)
 
-    def commit(self, para=" -m ", comment=""):
-        command = "git commit " + para + comment
+    def commit(self, para=" -m ", comments=""):
+        command = "git commit " + para + comments
         res = self.git.execute(command)
         self.show(command, res)
 
@@ -77,8 +77,7 @@ if __name__ == "__main__":
         # input comment for committing
         print("commit comment: ", end="")
         comment = input()
-        print(comment)
-        git_hack.commit(comment=comment)
+        git_hack.commit(comments=comment)
 
         # push codes to remote repository
         git_hack.push()
