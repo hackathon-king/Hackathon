@@ -78,7 +78,7 @@ if __name__ == "__main__":
         print("commit comment: ", end="")
         comment = input()
         git_hack.commit(comments=comment)
-
+#
         # push codes to remote repository
         git_hack.push()
     except GitCommandError as git_command_error:
