@@ -7,22 +7,66 @@
 # #!/usr/bin/python3
 # coding:utf-8
 
-from git import Repo
-
-
-repo = Repo(r"..")
-print(repo.active_branch)
-
-
-print(repo.tags)
-
 from git import Git
-g = Git(r"..")
 
 
-print(g.execute("git add --all"))
-print(g.execute("git commit -m 'git'"))
-print(g.execute("git push"))
-print(g.execute("git log"))
+class GitHack(object):
 
-print(g.execute("git branch"))
+    def __init__(self, working_dir=r".."):
+        self.git = Git(working_dir)
+
+    # show command and result
+    @staticmethod
+    def show(command, res):
+        print(f"[ {command}]\n{res}")
+
+    def branch(self, para=""):
+        command = "git branch " + para
+        res = self.git.execute(command)
+        self.show(command, res)
+
+    def status(self, para=""):
+        command = "git status " + para
+        res = self.git.execute(command)
+        self.show(command, res)
+
+    def add(self, para="--all"):
+        command = "git add " + para
+        res = self.git.execute(command)
+        self.show(command, res)
+
+    def commit(self, para=" -m ", comment=""):
+        command = "git commit " + para + comment
+        res = self.git.execute(command)
+        self.show(command, res)
+
+    def push(self, para=""):
+        command = "git push " + para
+        res = self.git.execute(command)
+        self.show(command, res)
+
+    def log(self, para=""):
+        command = "git log " + para
+        res = self.git.execute(command)
+        self.show(command, res)
+
+
+
+
+
+
+if __name__ == "__main__":
+    git_hack = GitHack()
+    git_hack.branch()
+    git_hack.status()
+
+    git_hack.add()
+
+    print("commit comment: ", end="")
+    comment = input()
+    print(comment)
+    git_hack.commit(comment=comment)
+
+    git_hack.push()
+    git_hack.log()
+
