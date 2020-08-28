@@ -24,3 +24,5 @@ print(g.execute("git add --all"))
 print(g.execute("git commit -m 'git'"))
 print(g.execute("git push"))
 print(g.execute("git log"))
+
+print(g.execute("git branch"))
