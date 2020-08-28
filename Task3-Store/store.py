@@ -10,7 +10,7 @@
 from git import Git
 from git import GitCommandError
 
-import datetime
+from datetime import datetime
 import sys
 
 class GitHack(object):
