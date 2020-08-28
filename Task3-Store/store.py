@@ -46,7 +46,7 @@ class GitHack(object):
         self.show(command, res)
 
     def commit(self, para=" -m ", comments=""):
-        command = "git commit " + para + comments
+        command = f"git commit {para} \"{comments}\""
         res = self.git.execute(command)
         self.show(command, res)
 
