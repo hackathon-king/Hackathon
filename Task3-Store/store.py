@@ -8,6 +8,7 @@
 # coding:utf-8
 
 from git import Git
+from datetime import datetime
 
 
 class GitHack(object):
@@ -15,16 +16,23 @@ class GitHack(object):
     def __init__(self, working_dir=r".."):
         self.git = Git(working_dir)
 
-    # show command and result
+    # show executive command and result
     @staticmethod
     def show(command, res):
         print(f"[ {command}]\n{res}")
 
+    # show info with date time and tips
+    @classmethod
+    def info(cls, tips=""):
+        print(f"{datetime.now()}: {tips}")
+
+    # show current active branch
     def branch(self, para=""):
         command = "git branch " + para
         res = self.git.execute(command)
         self.show(command, res)
 
+    # show status
     def status(self, para=""):
         command = "git status " + para
         res = self.git.execute(command)
@@ -45,7 +53,7 @@ class GitHack(object):
         res = self.git.execute(command)
         self.show(command, res)
 
-    # show log info
+    # show log
     def log(self, para=""):
         command = "git log " + para
         res = self.git.execute(command)
@@ -73,5 +81,6 @@ if __name__ == "__main__":
     git_hack.push()
 
     # could show log
-    git_hack.log()
+    # git_hack.log()
 
+    GitHack.info("Data store successfully")
