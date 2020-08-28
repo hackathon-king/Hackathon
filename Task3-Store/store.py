@@ -82,11 +82,11 @@ if __name__ == "__main__":
         # push codes to remote repository
         git_hack.push()
     except GitCommandError as git_command_error:
-        print("GitCommandError: " + git_command_error.__str__())
-        GitHack.info("Nothing to commit, working tree clean")
+        GitHack.info("GitCommandError: " + git_command_error.__str__())
         sys.exit(0)
     except Exception as other:
         print(other)
+        GitHack.info("2020-08-28 15:25:36.367056")
 
     # could show log
     # git_hack.log()
