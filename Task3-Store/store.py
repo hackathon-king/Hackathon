@@ -13,6 +13,7 @@ from git import GitCommandError
 from datetime import datetime
 import sys
 
+
 class GitHack(object):
 
     def __init__(self, working_dir=r".."):
