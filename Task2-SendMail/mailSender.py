@@ -3,7 +3,7 @@ from email.header import Header
 from smtplib import SMTP_SSL
 # qq mail sending server
 host_server = 'smtp.qq.com'
-sender_mail = 'hugoyang1996@qq.com'
+sender_mail = '***'
 sender_passcode = 'rvoiixqoeukbfjae'
 
 # receiver mail
